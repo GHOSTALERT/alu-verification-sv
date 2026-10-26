@@ -1,0 +1,88 @@
+Reading pref.tcl
+
+# 2020.1
+
+# vsim -c -sv_seed 10 top_tb "+NUM_TXN=20" "+LOG=results/runs/seed_10.sim.log" -do "run -all; quit -f" 
+# Start time: 21:43:30 on Oct 26,2026
+# Loading sv_std.std
+# Loading work.top_tb_sv_unit
+# Loading work.top_tb
+# Loading work.alu_if
+# Loading work.alu
+# run -all
+# TRANSACTION: A=15 B=15 opcode=1
+# MONITOR: A=15 B=15 opcode=1 result=0
+# PASS
+# TRANSACTION: A=15 B=15 opcode=6
+# MONITOR: A=15 B=15 opcode=6 result=7
+# PASS
+# TRANSACTION: A=13 B=12 opcode=3
+# MONITOR: A=13 B=12 opcode=3 result=13
+# PASS
+# TRANSACTION: A=0 B=15 opcode=4
+# MONITOR: A=0 B=15 opcode=4 result=15
+# PASS
+# TRANSACTION: A=4 B=11 opcode=2
+# MONITOR: A=4 B=11 opcode=2 result=0
+# PASS
+# TRANSACTION: A=15 B=15 opcode=2
+# MONITOR: A=15 B=15 opcode=2 result=15
+# PASS
+# TRANSACTION: A=8 B=8 opcode=5
+# MONITOR: A=8 B=8 opcode=5 result=0
+# PASS
+# TRANSACTION: A=15 B=15 opcode=5
+# MONITOR: A=15 B=15 opcode=5 result=14
+# PASS
+# TRANSACTION: A=15 B=15 opcode=2
+# MONITOR: A=15 B=15 opcode=2 result=15
+# PASS
+# TRANSACTION: A=8 B=4 opcode=6
+# MONITOR: A=8 B=4 opcode=6 result=4
+# PASS
+# TRANSACTION: A=3 B=3 opcode=7
+# MONITOR: A=3 B=3 opcode=7 result=3
+# PASS
+# TRANSACTION: A=15 B=15 opcode=2
+# MONITOR: A=15 B=15 opcode=2 result=15
+# PASS
+# TRANSACTION: A=11 B=14 opcode=4
+# MONITOR: A=11 B=14 opcode=4 result=5
+# PASS
+# TRANSACTION: A=15 B=15 opcode=2
+# MONITOR: A=15 B=15 opcode=2 result=15
+# PASS
+# TRANSACTION: A=15 B=15 opcode=2
+# MONITOR: A=15 B=15 opcode=2 result=15
+# PASS
+# TRANSACTION: A=0 B=15 opcode=0
+# MONITOR: A=0 B=15 opcode=0 result=15
+# PASS
+# TRANSACTION: A=0 B=15 opcode=4
+# MONITOR: A=0 B=15 opcode=4 result=15
+# PASS
+# TRANSACTION: A=15 B=15 opcode=7
+# MONITOR: A=15 B=15 opcode=7 result=15
+# PASS
+# TRANSACTION: A=14 B=12 opcode=2
+# MONITOR: A=14 B=12 opcode=2 result=12
+# PASS
+# TRANSACTION: A=15 B=15 opcode=3
+# MONITOR: A=15 B=15 opcode=3 result=15
+# PASS
+# 
+# --- COVERAGE REPORT ---
+# Opcode 0 executed 1 times
+# Opcode 1 executed 1 times
+# Opcode 2 executed 7 times
+# Opcode 3 executed 2 times
+# Opcode 4 executed 3 times
+# Opcode 5 executed 2 times
+# Opcode 6 executed 2 times
+# Opcode 7 executed 2 times
+# Mode RANDOM=7 BOUNDARY=3 MAXIMUM=10
+# SUMMARY: txns=20 pass=20 fail=0 assert_fail=0 opcode_cov=8/8
+# ** Note: $finish    : tb/top_tb.sv(83)
+#    Time: 200 ps  Iteration: 0  Instance: /top_tb
+# End time: 21:43:30 on Oct 26,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0

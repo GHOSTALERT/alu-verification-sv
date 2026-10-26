@@ -1,0 +1,6 @@
+work/
+transcript
+modelsim.ini
+*.wlf
+*.vstf
+.~lock.*#

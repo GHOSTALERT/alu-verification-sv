@@ -1,0 +1,662 @@
+Reading pref.tcl
+
+# 2020.1
+
+# vsim -c -sv_seed 42 top_tb "+NUM_TXN=200" "+LOG=results/runs/bug_injected.sim.log" -do "run -all; quit -f" 
+# Start time: 21:43:31 on Oct 26,2026
+# Loading sv_std.std
+# Loading work.top_tb_sv_unit
+# Loading work.top_tb
+# Loading work.alu_if
+# Loading work.alu
+# run -all
+# TRANSACTION: A=12 B=14 opcode=0
+# MONITOR: A=12 B=14 opcode=0 result=10
+# PASS
+# TRANSACTION: A=8 B=9 opcode=1
+# MONITOR: A=8 B=9 opcode=1 result=15
+# PASS
+# TRANSACTION: A=15 B=15 opcode=5
+# MONITOR: A=15 B=15 opcode=5 result=15
+# ** Error: SHL mismatch
+#    Time: 30 ps  Scope: top_tb File: tb/top_tb.sv Line: 66
+# FAIL: Expected=14 Got=15
+# TRANSACTION: A=0 B=15 opcode=1
+# MONITOR: A=0 B=15 opcode=1 result=1
+# PASS
+# TRANSACTION: A=0 B=15 opcode=1
+# MONITOR: A=0 B=15 opcode=1 result=1
+# PASS
+# TRANSACTION: A=15 B=15 opcode=0
+# MONITOR: A=15 B=15 opcode=0 result=14
+# PASS
+# TRANSACTION: A=5 B=5 opcode=5
+# MONITOR: A=5 B=5 opcode=5 result=10
+# PASS
+# TRANSACTION: A=15 B=15 opcode=3
+# MONITOR: A=15 B=15 opcode=3 result=15
+# PASS
+# TRANSACTION: A=15 B=15 opcode=5
+# MONITOR: A=15 B=15 opcode=5 result=15
+# ** Error: SHL mismatch
+#    Time: 90 ps  Scope: top_tb File: tb/top_tb.sv Line: 66
+# FAIL: Expected=14 Got=15
+# TRANSACTION: A=15 B=15 opcode=1
+# MONITOR: A=15 B=15 opcode=1 result=0
+# PASS
+# TRANSACTION: A=7 B=13 opcode=2
+# MONITOR: A=7 B=13 opcode=2 result=5
+# PASS
+# TRANSACTION: A=0 B=15 opcode=0
+# MONITOR: A=0 B=15 opcode=0 result=15
+# PASS
+# TRANSACTION: A=15 B=15 opcode=0
+# MONITOR: A=15 B=15 opcode=0 result=14
+# PASS
+# TRANSACTION: A=10 B=5 opcode=7
+# MONITOR: A=10 B=5 opcode=7 result=10
+# PASS
+# TRANSACTION: A=15 B=15 opcode=3
+# MONITOR: A=15 B=15 opcode=3 result=15
+# PASS
+# TRANSACTION: A=15 B=15 opcode=4
+# MONITOR: A=15 B=15 opcode=4 result=0
+# PASS
+# TRANSACTION: A=0 B=15 opcode=7
+# MONITOR: A=0 B=15 opcode=7 result=0
+# PASS
+# TRANSACTION: A=3 B=8 opcode=3
+# MONITOR: A=3 B=8 opcode=3 result=11
+# PASS
+# TRANSACTION: A=13 B=10 opcode=2
+# MONITOR: A=13 B=10 opcode=2 result=8
+# PASS
+# TRANSACTION: A=0 B=15 opcode=4
+# MONITOR: A=0 B=15 opcode=4 result=15
+# PASS
+# TRANSACTION: A=1 B=11 opcode=0
+# MONITOR: A=1 B=11 opcode=0 result=12
+# PASS
+# TRANSACTION: A=15 B=15 opcode=7
+# MONITOR: A=15 B=15 opcode=7 result=15
+# PASS
+# TRANSACTION: A=0 B=15 opcode=5
+# MONITOR: A=0 B=15 opcode=5 result=0
+# PASS
+# TRANSACTION: A=4 B=6 opcode=5
+# MONITOR: A=4 B=6 opcode=5 result=8
+# PASS
+# TRANSACTION: A=9 B=3 opcode=5
+# MONITOR: A=9 B=3 opcode=5 result=3
+# ** Error: SHL mismatch
+#    Time: 250 ps  Scope: top_tb File: tb/top_tb.sv Line: 66
+# FAIL: Expected=2 Got=3
+# TRANSACTION: A=13 B=14 opcode=6
+# MONITOR: A=13 B=14 opcode=6 result=6
+# PASS
+# TRANSACTION: A=15 B=13 opcode=0
+# MONITOR: A=15 B=13 opcode=0 result=12
+# PASS
+# TRANSACTION: A=2 B=15 opcode=4
+# MONITOR: A=2 B=15 opcode=4 result=13
+# PASS
+# TRANSACTION: A=13 B=15 opcode=5
+# MONITOR: A=13 B=15 opcode=5 result=11
+# ** Error: SHL mismatch
+#    Time: 290 ps  Scope: top_tb File: tb/top_tb.sv Line: 66
+# FAIL: Expected=10 Got=11
+# TRANSACTION: A=0 B=15 opcode=6
+# MONITOR: A=0 B=15 opcode=6 result=0
+# PASS
+# TRANSACTION: A=0 B=15 opcode=3
+# MONITOR: A=0 B=15 opcode=3 result=15
+# PASS
+# TRANSACTION: A=0 B=15 opcode=7
+# MONITOR: A=0 B=15 opcode=7 result=0
+# PASS
+# TRANSACTION: A=3 B=15 opcode=0
+# MONITOR: A=3 B=15 opcode=0 result=2
+# PASS
+# TRANSACTION: A=15 B=15 opcode=3
+# MONITOR: A=15 B=15 opcode=3 result=15
+# PASS
+# TRANSACTION: A=15 B=15 opcode=6
+# MONITOR: A=15 B=15 opcode=6 result=7
+# PASS
+# TRANSACTION: A=9 B=0 opcode=3
+# MONITOR: A=9 B=0 opcode=3 result=9
+# PASS
+# TRANSACTION: A=14 B=0 opcode=4
+# MONITOR: A=14 B=0 opcode=4 result=14
+# PASS
+# TRANSACTION: A=15 B=15 opcode=5
+# MONITOR: A=15 B=15 opcode=5 result=15
+# ** Error: SHL mismatch
+#    Time: 380 ps  Scope: top_tb File: tb/top_tb.sv Line: 66
+# FAIL: Expected=14 Got=15
+# TRANSACTION: A=15 B=15 opcode=5
+# MONITOR: A=15 B=15 opcode=5 result=15
+# ** Error: SHL mismatch
+#    Time: 390 ps  Scope: top_tb File: tb/top_tb.sv Line: 66
+# FAIL: Expected=14 Got=15
+# TRANSACTION: A=0 B=15 opcode=7
+# MONITOR: A=0 B=15 opcode=7 result=0
+# PASS
+# TRANSACTION: A=13 B=10 opcode=3
+# MONITOR: A=13 B=10 opcode=3 result=15
+# PASS
+# TRANSACTION: A=15 B=15 opcode=0
+# MONITOR: A=15 B=15 opcode=0 result=14
+# PASS
+# TRANSACTION: A=0 B=15 opcode=4
+# MONITOR: A=0 B=15 opcode=4 result=15
+# PASS
+# TRANSACTION: A=15 B=15 opcode=3
+# MONITOR: A=15 B=15 opcode=3 result=15
+# PASS
+# TRANSACTION: A=0 B=15 opcode=0
+# MONITOR: A=0 B=15 opcode=0 result=15
+# PASS
+# TRANSACTION: A=15 B=15 opcode=4
+# MONITOR: A=15 B=15 opcode=4 result=0
+# PASS
+# TRANSACTION: A=15 B=15 opcode=6
+# MONITOR: A=15 B=15 opcode=6 result=7
+# PASS
+# TRANSACTION: A=15 B=15 opcode=0
+# MONITOR: A=15 B=15 opcode=0 result=14
+# PASS
+# TRANSACTION: A=0 B=3 opcode=5
+# MONITOR: A=0 B=3 opcode=5 result=0
+# PASS
+# TRANSACTION: A=15 B=15 opcode=2
+# MONITOR: A=15 B=15 opcode=2 result=15
+# PASS
+# TRANSACTION: A=15 B=15 opcode=5
+# MONITOR: A=15 B=15 opcode=5 result=15
+# ** Error: SHL mismatch
+#    Time: 510 ps  Scope: top_tb File: tb/top_tb.sv Line: 66
+# FAIL: Expected=14 Got=15
+# TRANSACTION: A=15 B=15 opcode=5
+# MONITOR: A=15 B=15 opcode=5 result=15
+# ** Error: SHL mismatch
+#    Time: 520 ps  Scope: top_tb File: tb/top_tb.sv Line: 66
+# FAIL: Expected=14 Got=15
+# TRANSACTION: A=0 B=15 opcode=6
+# MONITOR: A=0 B=15 opcode=6 result=0
+# PASS
+# TRANSACTION: A=0 B=15 opcode=6
+# MONITOR: A=0 B=15 opcode=6 result=0
+# PASS
+# TRANSACTION: A=15 B=15 opcode=3
+# MONITOR: A=15 B=15 opcode=3 result=15
+# PASS
+# TRANSACTION: A=15 B=15 opcode=3
+# MONITOR: A=15 B=15 opcode=3 result=15
+# PASS
+# TRANSACTION: A=15 B=15 opcode=7
+# MONITOR: A=15 B=15 opcode=7 result=15
+# PASS
+# TRANSACTION: A=15 B=15 opcode=3
+# MONITOR: A=15 B=15 opcode=3 result=15
+# PASS
+# TRANSACTION: A=0 B=15 opcode=5
+# MONITOR: A=0 B=15 opcode=5 result=0
+# PASS
+# TRANSACTION: A=0 B=15 opcode=2
+# MONITOR: A=0 B=15 opcode=2 result=0
+# PASS
+# TRANSACTION: A=0 B=15 opcode=4
+# MONITOR: A=0 B=15 opcode=4 result=15
+# PASS
+# TRANSACTION: A=15 B=15 opcode=0
+# MONITOR: A=15 B=15 opcode=0 result=14
+# PASS
+# TRANSACTION: A=15 B=15 opcode=6
+# MONITOR: A=15 B=15 opcode=6 result=7
+# PASS
+# TRANSACTION: A=5 B=4 opcode=6
+# MONITOR: A=5 B=4 opcode=6 result=2
+# PASS
+# TRANSACTION: A=7 B=11 opcode=5
+# MONITOR: A=7 B=11 opcode=5 result=14
+# PASS
+# TRANSACTION: A=15 B=15 opcode=0
+# MONITOR: A=15 B=15 opcode=0 result=14
+# PASS
+# TRANSACTION: A=15 B=15 opcode=1
+# MONITOR: A=15 B=15 opcode=1 result=0
+# PASS
+# TRANSACTION: A=15 B=15 opcode=7
+# MONITOR: A=15 B=15 opcode=7 result=15
+# PASS
+# TRANSACTION: A=0 B=15 opcode=2
+# MONITOR: A=0 B=15 opcode=2 result=0
+# PASS
+# TRANSACTION: A=0 B=15 opcode=1
+# MONITOR: A=0 B=15 opcode=1 result=1
+# PASS
+# TRANSACTION: A=15 B=15 opcode=0
+# MONITOR: A=15 B=15 opcode=0 result=14
+# PASS
+# TRANSACTION: A=15 B=15 opcode=1
+# MONITOR: A=15 B=15 opcode=1 result=0
+# PASS
+# TRANSACTION: A=15 B=15 opcode=2
+# MONITOR: A=15 B=15 opcode=2 result=15
+# PASS
+# TRANSACTION: A=2 B=0 opcode=0
+# MONITOR: A=2 B=0 opcode=0 result=2
+# PASS
+# TRANSACTION: A=15 B=15 opcode=5
+# MONITOR: A=15 B=15 opcode=5 result=15
+# ** Error: SHL mismatch
+#    Time: 750 ps  Scope: top_tb File: tb/top_tb.sv Line: 66
+# FAIL: Expected=14 Got=15
+# TRANSACTION: A=15 B=15 opcode=2
+# MONITOR: A=15 B=15 opcode=2 result=15
+# PASS
+# TRANSACTION: A=11 B=12 opcode=1
+# MONITOR: A=11 B=12 opcode=1 result=15
+# PASS
+# TRANSACTION: A=0 B=15 opcode=2
+# MONITOR: A=0 B=15 opcode=2 result=0
+# PASS
+# TRANSACTION: A=15 B=15 opcode=5
+# MONITOR: A=15 B=15 opcode=5 result=15
+# ** Error: SHL mismatch
+#    Time: 790 ps  Scope: top_tb File: tb/top_tb.sv Line: 66
+# FAIL: Expected=14 Got=15
+# TRANSACTION: A=15 B=15 opcode=3
+# MONITOR: A=15 B=15 opcode=3 result=15
+# PASS
+# TRANSACTION: A=15 B=15 opcode=0
+# MONITOR: A=15 B=15 opcode=0 result=14
+# PASS
+# TRANSACTION: A=11 B=2 opcode=1
+# MONITOR: A=11 B=2 opcode=1 result=9
+# PASS
+# TRANSACTION: A=15 B=15 opcode=6
+# MONITOR: A=15 B=15 opcode=6 result=7
+# PASS
+# TRANSACTION: A=11 B=9 opcode=3
+# MONITOR: A=11 B=9 opcode=3 result=11
+# PASS
+# TRANSACTION: A=7 B=13 opcode=5
+# MONITOR: A=7 B=13 opcode=5 result=14
+# PASS
+# TRANSACTION: A=0 B=15 opcode=1
+# MONITOR: A=0 B=15 opcode=1 result=1
+# PASS
+# TRANSACTION: A=15 B=6 opcode=4
+# MONITOR: A=15 B=6 opcode=4 result=9
+# PASS
+# TRANSACTION: A=0 B=15 opcode=5
+# MONITOR: A=0 B=15 opcode=5 result=0
+# PASS
+# TRANSACTION: A=4 B=8 opcode=1
+# MONITOR: A=4 B=8 opcode=1 result=12
+# PASS
+# TRANSACTION: A=0 B=15 opcode=4
+# MONITOR: A=0 B=15 opcode=4 result=15
+# PASS
+# TRANSACTION: A=1 B=8 opcode=0
+# MONITOR: A=1 B=8 opcode=0 result=9
+# PASS
+# TRANSACTION: A=0 B=15 opcode=0
+# MONITOR: A=0 B=15 opcode=0 result=15
+# PASS
+# TRANSACTION: A=7 B=5 opcode=3
+# MONITOR: A=7 B=5 opcode=3 result=7
+# PASS
+# TRANSACTION: A=0 B=15 opcode=4
+# MONITOR: A=0 B=15 opcode=4 result=15
+# PASS
+# TRANSACTION: A=15 B=15 opcode=5
+# MONITOR: A=15 B=15 opcode=5 result=15
+# ** Error: SHL mismatch
+#    Time: 950 ps  Scope: top_tb File: tb/top_tb.sv Line: 66
+# FAIL: Expected=14 Got=15
+# TRANSACTION: A=15 B=15 opcode=0
+# MONITOR: A=15 B=15 opcode=0 result=14
+# PASS
+# TRANSACTION: A=15 B=15 opcode=2
+# MONITOR: A=15 B=15 opcode=2 result=15
+# PASS
+# TRANSACTION: A=6 B=14 opcode=5
+# MONITOR: A=6 B=14 opcode=5 result=12
+# PASS
+# TRANSACTION: A=0 B=15 opcode=6
+# MONITOR: A=0 B=15 opcode=6 result=0
+# PASS
+# TRANSACTION: A=5 B=4 opcode=1
+# MONITOR: A=5 B=4 opcode=1 result=1
+# PASS
+# TRANSACTION: A=0 B=15 opcode=5
+# MONITOR: A=0 B=15 opcode=5 result=0
+# PASS
+# TRANSACTION: A=15 B=15 opcode=5
+# MONITOR: A=15 B=15 opcode=5 result=15
+# ** Error: SHL mismatch
+#    Time: 1020 ps  Scope: top_tb File: tb/top_tb.sv Line: 66
+# FAIL: Expected=14 Got=15
+# TRANSACTION: A=15 B=15 opcode=5
+# MONITOR: A=15 B=15 opcode=5 result=15
+# ** Error: SHL mismatch
+#    Time: 1030 ps  Scope: top_tb File: tb/top_tb.sv Line: 66
+# FAIL: Expected=14 Got=15
+# TRANSACTION: A=15 B=15 opcode=2
+# MONITOR: A=15 B=15 opcode=2 result=15
+# PASS
+# TRANSACTION: A=1 B=4 opcode=7
+# MONITOR: A=1 B=4 opcode=7 result=1
+# PASS
+# TRANSACTION: A=15 B=15 opcode=1
+# MONITOR: A=15 B=15 opcode=1 result=0
+# PASS
+# TRANSACTION: A=15 B=15 opcode=4
+# MONITOR: A=15 B=15 opcode=4 result=0
+# PASS
+# TRANSACTION: A=15 B=15 opcode=1
+# MONITOR: A=15 B=15 opcode=1 result=0
+# PASS
+# TRANSACTION: A=15 B=15 opcode=2
+# MONITOR: A=15 B=15 opcode=2 result=15
+# PASS
+# TRANSACTION: A=0 B=15 opcode=3
+# MONITOR: A=0 B=15 opcode=3 result=15
+# PASS
+# TRANSACTION: A=15 B=14 opcode=2
+# MONITOR: A=15 B=14 opcode=2 result=14
+# PASS
+# TRANSACTION: A=2 B=12 opcode=4
+# MONITOR: A=2 B=12 opcode=4 result=14
+# PASS
+# TRANSACTION: A=15 B=15 opcode=7
+# MONITOR: A=15 B=15 opcode=7 result=15
+# PASS
+# TRANSACTION: A=0 B=15 opcode=1
+# MONITOR: A=0 B=15 opcode=1 result=1
+# PASS
+# TRANSACTION: A=3 B=8 opcode=6
+# MONITOR: A=3 B=8 opcode=6 result=1
+# PASS
+# TRANSACTION: A=0 B=15 opcode=0
+# MONITOR: A=0 B=15 opcode=0 result=15
+# PASS
+# TRANSACTION: A=11 B=11 opcode=4
+# MONITOR: A=11 B=11 opcode=4 result=0
+# PASS
+# TRANSACTION: A=15 B=15 opcode=0
+# MONITOR: A=15 B=15 opcode=0 result=14
+# PASS
+# TRANSACTION: A=1 B=8 opcode=2
+# MONITOR: A=1 B=8 opcode=2 result=0
+# PASS
+# TRANSACTION: A=6 B=13 opcode=7
+# MONITOR: A=6 B=13 opcode=7 result=6
+# PASS
+# TRANSACTION: A=0 B=15 opcode=3
+# MONITOR: A=0 B=15 opcode=3 result=15
+# PASS
+# TRANSACTION: A=0 B=15 opcode=2
+# MONITOR: A=0 B=15 opcode=2 result=0
+# PASS
+# TRANSACTION: A=0 B=15 opcode=4
+# MONITOR: A=0 B=15 opcode=4 result=15
+# PASS
+# TRANSACTION: A=12 B=6 opcode=2
+# MONITOR: A=12 B=6 opcode=2 result=4
+# PASS
+# TRANSACTION: A=15 B=15 opcode=5
+# MONITOR: A=15 B=15 opcode=5 result=15
+# ** Error: SHL mismatch
+#    Time: 1250 ps  Scope: top_tb File: tb/top_tb.sv Line: 66
+# FAIL: Expected=14 Got=15
+# TRANSACTION: A=15 B=15 opcode=4
+# MONITOR: A=15 B=15 opcode=4 result=0
+# PASS
+# TRANSACTION: A=12 B=11 opcode=0
+# MONITOR: A=12 B=11 opcode=0 result=7
+# PASS
+# TRANSACTION: A=15 B=15 opcode=6
+# MONITOR: A=15 B=15 opcode=6 result=7
+# PASS
+# TRANSACTION: A=0 B=15 opcode=0
+# MONITOR: A=0 B=15 opcode=0 result=15
+# PASS
+# TRANSACTION: A=15 B=15 opcode=6
+# MONITOR: A=15 B=15 opcode=6 result=7
+# PASS
+# TRANSACTION: A=0 B=3 opcode=3
+# MONITOR: A=0 B=3 opcode=3 result=3
+# PASS
+# TRANSACTION: A=0 B=15 opcode=1
+# MONITOR: A=0 B=15 opcode=1 result=1
+# PASS
+# TRANSACTION: A=0 B=15 opcode=0
+# MONITOR: A=0 B=15 opcode=0 result=15
+# PASS
+# TRANSACTION: A=0 B=15 opcode=5
+# MONITOR: A=0 B=15 opcode=5 result=0
+# PASS
+# TRANSACTION: A=0 B=15 opcode=0
+# MONITOR: A=0 B=15 opcode=0 result=15
+# PASS
+# TRANSACTION: A=7 B=14 opcode=5
+# MONITOR: A=7 B=14 opcode=5 result=14
+# PASS
+# TRANSACTION: A=15 B=15 opcode=5
+# MONITOR: A=15 B=15 opcode=5 result=15
+# ** Error: SHL mismatch
+#    Time: 1370 ps  Scope: top_tb File: tb/top_tb.sv Line: 66
+# FAIL: Expected=14 Got=15
+# TRANSACTION: A=7 B=9 opcode=5
+# MONITOR: A=7 B=9 opcode=5 result=14
+# PASS
+# TRANSACTION: A=0 B=15 opcode=3
+# MONITOR: A=0 B=15 opcode=3 result=15
+# PASS
+# TRANSACTION: A=0 B=15 opcode=5
+# MONITOR: A=0 B=15 opcode=5 result=0
+# PASS
+# TRANSACTION: A=15 B=15 opcode=3
+# MONITOR: A=15 B=15 opcode=3 result=15
+# PASS
+# TRANSACTION: A=15 B=15 opcode=2
+# MONITOR: A=15 B=15 opcode=2 result=15
+# PASS
+# TRANSACTION: A=6 B=13 opcode=1
+# MONITOR: A=6 B=13 opcode=1 result=9
+# PASS
+# TRANSACTION: A=15 B=15 opcode=5
+# MONITOR: A=15 B=15 opcode=5 result=15
+# ** Error: SHL mismatch
+#    Time: 1440 ps  Scope: top_tb File: tb/top_tb.sv Line: 66
+# FAIL: Expected=14 Got=15
+# TRANSACTION: A=1 B=2 opcode=5
+# MONITOR: A=1 B=2 opcode=5 result=2
+# PASS
+# TRANSACTION: A=0 B=15 opcode=6
+# MONITOR: A=0 B=15 opcode=6 result=0
+# PASS
+# TRANSACTION: A=0 B=15 opcode=2
+# MONITOR: A=0 B=15 opcode=2 result=0
+# PASS
+# TRANSACTION: A=0 B=15 opcode=0
+# MONITOR: A=0 B=15 opcode=0 result=15
+# PASS
+# TRANSACTION: A=0 B=15 opcode=0
+# MONITOR: A=0 B=15 opcode=0 result=15
+# PASS
+# TRANSACTION: A=0 B=15 opcode=6
+# MONITOR: A=0 B=15 opcode=6 result=0
+# PASS
+# TRANSACTION: A=15 B=15 opcode=7
+# MONITOR: A=15 B=15 opcode=7 result=15
+# PASS
+# TRANSACTION: A=0 B=15 opcode=6
+# MONITOR: A=0 B=15 opcode=6 result=0
+# PASS
+# TRANSACTION: A=4 B=7 opcode=1
+# MONITOR: A=4 B=7 opcode=1 result=13
+# PASS
+# TRANSACTION: A=15 B=15 opcode=2
+# MONITOR: A=15 B=15 opcode=2 result=15
+# PASS
+# TRANSACTION: A=12 B=14 opcode=7
+# MONITOR: A=12 B=14 opcode=7 result=12
+# PASS
+# TRANSACTION: A=0 B=15 opcode=3
+# MONITOR: A=0 B=15 opcode=3 result=15
+# PASS
+# TRANSACTION: A=2 B=5 opcode=0
+# MONITOR: A=2 B=5 opcode=0 result=7
+# PASS
+# TRANSACTION: A=8 B=13 opcode=5
+# MONITOR: A=8 B=13 opcode=5 result=1
+# ** Error: SHL mismatch
+#    Time: 1580 ps  Scope: top_tb File: tb/top_tb.sv Line: 66
+# FAIL: Expected=0 Got=1
+# TRANSACTION: A=15 B=15 opcode=1
+# MONITOR: A=15 B=15 opcode=1 result=0
+# PASS
+# TRANSACTION: A=9 B=5 opcode=4
+# MONITOR: A=9 B=5 opcode=4 result=12
+# PASS
+# TRANSACTION: A=15 B=15 opcode=0
+# MONITOR: A=15 B=15 opcode=0 result=14
+# PASS
+# TRANSACTION: A=15 B=15 opcode=7
+# MONITOR: A=15 B=15 opcode=7 result=15
+# PASS
+# TRANSACTION: A=4 B=7 opcode=1
+# MONITOR: A=4 B=7 opcode=1 result=13
+# PASS
+# TRANSACTION: A=7 B=10 opcode=7
+# MONITOR: A=7 B=10 opcode=7 result=7
+# PASS
+# TRANSACTION: A=0 B=7 opcode=0
+# MONITOR: A=0 B=7 opcode=0 result=7
+# PASS
+# TRANSACTION: A=0 B=15 opcode=6
+# MONITOR: A=0 B=15 opcode=6 result=0
+# PASS
+# TRANSACTION: A=5 B=10 opcode=0
+# MONITOR: A=5 B=10 opcode=0 result=15
+# PASS
+# TRANSACTION: A=0 B=15 opcode=4
+# MONITOR: A=0 B=15 opcode=4 result=15
+# PASS
+# TRANSACTION: A=0 B=15 opcode=3
+# MONITOR: A=0 B=15 opcode=3 result=15
+# PASS
+# TRANSACTION: A=0 B=15 opcode=0
+# MONITOR: A=0 B=15 opcode=0 result=15
+# PASS
+# TRANSACTION: A=0 B=15 opcode=3
+# MONITOR: A=0 B=15 opcode=3 result=15
+# PASS
+# TRANSACTION: A=2 B=10 opcode=0
+# MONITOR: A=2 B=10 opcode=0 result=12
+# PASS
+# TRANSACTION: A=15 B=15 opcode=4
+# MONITOR: A=15 B=15 opcode=4 result=0
+# PASS
+# TRANSACTION: A=7 B=0 opcode=1
+# MONITOR: A=7 B=0 opcode=1 result=7
+# PASS
+# TRANSACTION: A=3 B=15 opcode=6
+# MONITOR: A=3 B=15 opcode=6 result=1
+# PASS
+# TRANSACTION: A=0 B=15 opcode=3
+# MONITOR: A=0 B=15 opcode=3 result=15
+# PASS
+# TRANSACTION: A=10 B=14 opcode=6
+# MONITOR: A=10 B=14 opcode=6 result=5
+# PASS
+# TRANSACTION: A=0 B=15 opcode=7
+# MONITOR: A=0 B=15 opcode=7 result=0
+# PASS
+# TRANSACTION: A=0 B=15 opcode=3
+# MONITOR: A=0 B=15 opcode=3 result=15
+# PASS
+# TRANSACTION: A=15 B=15 opcode=4
+# MONITOR: A=15 B=15 opcode=4 result=0
+# PASS
+# TRANSACTION: A=0 B=13 opcode=1
+# MONITOR: A=0 B=13 opcode=1 result=3
+# PASS
+# TRANSACTION: A=0 B=15 opcode=0
+# MONITOR: A=0 B=15 opcode=0 result=15
+# PASS
+# TRANSACTION: A=0 B=15 opcode=3
+# MONITOR: A=0 B=15 opcode=3 result=15
+# PASS
+# TRANSACTION: A=0 B=15 opcode=7
+# MONITOR: A=0 B=15 opcode=7 result=0
+# PASS
+# TRANSACTION: A=15 B=15 opcode=3
+# MONITOR: A=15 B=15 opcode=3 result=15
+# PASS
+# TRANSACTION: A=15 B=15 opcode=4
+# MONITOR: A=15 B=15 opcode=4 result=0
+# PASS
+# TRANSACTION: A=10 B=7 opcode=6
+# MONITOR: A=10 B=7 opcode=6 result=5
+# PASS
+# TRANSACTION: A=15 B=15 opcode=6
+# MONITOR: A=15 B=15 opcode=6 result=7
+# PASS
+# TRANSACTION: A=15 B=15 opcode=0
+# MONITOR: A=15 B=15 opcode=0 result=14
+# PASS
+# TRANSACTION: A=0 B=15 opcode=5
+# MONITOR: A=0 B=15 opcode=5 result=0
+# PASS
+# TRANSACTION: A=0 B=15 opcode=2
+# MONITOR: A=0 B=15 opcode=2 result=0
+# PASS
+# TRANSACTION: A=11 B=1 opcode=0
+# MONITOR: A=11 B=1 opcode=0 result=12
+# PASS
+# TRANSACTION: A=15 B=15 opcode=1
+# MONITOR: A=15 B=15 opcode=1 result=0
+# PASS
+# TRANSACTION: A=3 B=3 opcode=1
+# MONITOR: A=3 B=3 opcode=1 result=0
+# PASS
+# TRANSACTION: A=7 B=11 opcode=1
+# MONITOR: A=7 B=11 opcode=1 result=12
+# PASS
+# TRANSACTION: A=15 B=15 opcode=7
+# MONITOR: A=15 B=15 opcode=7 result=15
+# PASS
+# TRANSACTION: A=0 B=15 opcode=6
+# MONITOR: A=0 B=15 opcode=6 result=0
+# PASS
+# TRANSACTION: A=0 B=15 opcode=5
+# MONITOR: A=0 B=15 opcode=5 result=0
+# PASS
+# TRANSACTION: A=0 B=15 opcode=6
+# MONITOR: A=0 B=15 opcode=6 result=0
+# PASS
+# TRANSACTION: A=5 B=13 opcode=3
+# MONITOR: A=5 B=13 opcode=3 result=13
+# PASS
+# 
+# --- COVERAGE REPORT ---
+# Opcode 0 executed 35 times
+# Opcode 1 executed 25 times
+# Opcode 2 executed 19 times
+# Opcode 3 executed 27 times
+# Opcode 4 executed 20 times
+# Opcode 5 executed 34 times
+# Opcode 6 executed 23 times
+# Opcode 7 executed 17 times
+# Mode RANDOM=65 BOUNDARY=63 MAXIMUM=72
+# SUMMARY: txns=200 pass=183 fail=17 assert_fail=17 opcode_cov=8/8
+# ** Note: $finish    : tb/top_tb.sv(83)
+#    Time: 2 ns  Iteration: 0  Instance: /top_tb
+# End time: 21:43:32 on Oct 26,2026, Elapsed time: 0:00:01
+# Errors: 17, Warnings: 0
