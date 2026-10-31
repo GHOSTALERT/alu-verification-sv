@@ -6,6 +6,7 @@
 ![ModelSim](https://img.shields.io/badge/ModelSim-2020.1-555)
 ![Regression](https://img.shields.io/badge/regression-1200%20%2F%201200%20pass-2e7d32)
 ![Course](https://img.shields.io/badge/VIT-BEVD205L%20Scripting%20%26%20Verification-1e3a8a)
+![License](https://img.shields.io/badge/license-MIT-blue)
 
 <p align="center">
   <img src="docs/images/testbench.png" alt="Testbench architecture" width="760">
@@ -83,3 +84,7 @@ BEVD205L Scripting Languages & Verification, VIT Vellore (Slot A2, Team 6).
 | Arrnav Trisal | 24BVD0064 |
 | Gavin Fernandes | 24BVD0083 |
 | Ashmit Singh | 24BVD0027 |
+
+## License
+
+Released under the [MIT License](LICENSE).
